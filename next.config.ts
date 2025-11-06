@@ -2,7 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["storage.googleapis.com"], // ✅ Add your image host here
+    domains: [ // ✅ Add your image host here
+      "storage.googleapis.com",
+      "picsum.photos"
+    ],
   },
 };
 

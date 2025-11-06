@@ -98,7 +98,7 @@ const Masonry = ({
   };
 
   useEffect(() => {
-    preloadImages(items.map(i => i.img)).then(() => setImagesReady(true));
+    preloadImages(items.map(i => i.image.url)).then(() => setImagesReady(true));
   }, [items]);
 
   const grid = useMemo(() => {
@@ -111,7 +111,7 @@ const Masonry = ({
     return items.map(child => {
       const col = colHeights.indexOf(Math.min(...colHeights));
       const x = col * (columnWidth + gap);
-      const height = child.height / 2;
+      const height = child.image.height / 2;
       const y = colHeights[col];
 
       colHeights[col] += height + gap;
@@ -206,7 +206,7 @@ const Masonry = ({
       >
         <div
           className="relative w-full h-full bg-cover bg-center rounded-[10px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] overflow-hidden cursor-pointer border-2 border-gray-400"
-          style={{ backgroundImage: `url(${item.img})` }}
+          style={{ backgroundImage: `url(${item.image.url})` }}
         >
           {/* Color overlay (optional hover effect) */}
           {colorShiftOnHover && (
@@ -214,20 +214,20 @@ const Masonry = ({
           )}
 
           {/* Label rendering */}
-                {item.label && (
+                {item.name && (
                 <span
                     className={`
                     absolute text-beige font-bold text-lg drop-shadow-md
-                    ${item.labelPosition === "top-left" ? "top-4 left-4" : ""}
-                    ${item.labelPosition === "top-right" ? "top-4 right-4" : ""}
-                    ${item.labelPosition === "bottom-left" ? "bottom-4 left-4" : ""}
-                    ${item.labelPosition === "bottom-right" ? "bottom-4 right-4" : ""}
-                    ${item.labelPosition === "center" ? "inset-0 flex items-center justify-center" : ""}
-                    ${item.labelPosition === "left-vertical" ? "left-4 top-1/2 -translate-y-1/2 -rotate-90 origin-left" : ""}
-                    ${item.labelPosition === "right-vertical" ? "right-4 top-1/2 -translate-y-1/2 rotate-90 origin-right" : ""}
+                    ${item.image.labelPosition === "top-left" ? "top-4 left-4" : ""}
+                    ${item.image.labelPosition === "top-right" ? "top-4 right-4" : ""}
+                    ${item.image.labelPosition === "bottom-left" ? "bottom-4 left-4" : ""}
+                    ${item.image.labelPosition === "bottom-right" ? "bottom-4 right-4" : ""}
+                    ${item.image.labelPosition === "center" ? "inset-0 flex items-center justify-center" : ""}
+                    ${item.image.labelPosition === "left-vertical" ? "left-4 top-1/2 -translate-y-1/2 -rotate-90 origin-left" : ""}
+                    ${item.image.labelPosition === "right-vertical" ? "right-4 top-1/2 -translate-y-1/2 rotate-90 origin-right" : ""}
                     `}
                 >
-                    {item.label}
+                    {item.name}
                 </span>
 )}
         </div>

@@ -35,9 +35,9 @@ import ScrollFloat from "./components/ScrollFloat"; // make sure this is your Sc
 import { motion } from "framer-motion";
 import RotatingText from "./components/RotatingText";
 import TiltedCard from "./components/TiltedCard";
-
 import HomeProductCard from "./components/HomeProductCard";
 import TiltedWrapper from "./components/TiltedWrapper.js";
+import { useFetch } from "./hooks/useFetch";
 
 export default function NoonNavbar() {
   const brands = [
@@ -267,6 +267,8 @@ export default function NoonNavbar() {
       badge: "Limited Offer",
     },
   ];
+
+  const { data: categoriesData, loading: loadingCategories, error: categoriesError } = useFetch('http://localhost:8888/api/v1/categories?images&names=shorts,shoes,t-shirts,shirts,pants,hoodies');
 
   return (
     <>
@@ -542,7 +544,7 @@ export default function NoonNavbar() {
 
       {/* categories */}
 
-      <Categories />
+      <Categories data={(categoriesData && !categoriesError)? categoriesData.result : []} />
 
       <RecentlyViewed />
 
