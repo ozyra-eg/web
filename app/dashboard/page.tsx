@@ -1,78 +1,128 @@
-import Sidebar from "../profile/Sidebar"
-// import Tabs from "./Tabs"
-import Card from "./card"
-import Chart from "./chart"
+import React from "react";
+import Card from "./components/card"
+import Chart from "./components/chart"
+import Table from "./components/table"
 
 export default function Page(){
 
-        const sidebarProperties = [
-            {
-                title: "Overview",
-                icon: (
-                    <svg className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                        <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
-                        <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
-                    </svg>
-                ),
-                href: "dashboard"
-            },
-            {
-                title: "Updates",
-            },
-            {
-                title: "Payment",
-            },
-            {
-                title: "My Order",
-            },
-            {
-                title: "Customers",
-                href: "dashboard/customers"
-            },
-        ]
-    
-        const sidebarElement = sidebarProperties.map(function(item, index){
-            return(
-                <Sidebar 
-                    key={index}
-                    title={item.title}
-                    icon={item.icon}
-                    href={item.href ?? "#"}
-                />
-            )
-        })
+    const cardInfo = [
+        {
+            title: "Total Revenue",
+            value: "$45,231",
+            change: "+20.1%",
+            changeType: "increase" as const,
+            icon: (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            ),
+            iconBgColor: "bg-blue-500"
+        },
+        {
+            title: "Total Orders",
+            value: "1,234",
+            change: "+12.5%",
+            changeType: "increase" as const,
+            icon: (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+            ),
+            iconBgColor: "bg-green-500"
+        },
+        {
+            title: "Total Customers",
+            value: "892",
+            change: "+8.2%",
+            changeType: "increase" as const,
+            icon: (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+            ),
+            iconBgColor: "bg-purple-500"
+        },
+        {
+            title: "Products Sold",
+            value: "2,456",
+            change: "-3.1%",
+            changeType: "decrease" as const,
+            icon: (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
+            ),
+            iconBgColor: "bg-orange-500"
+        },
+    ]
 
-        const cardInfo = [
-            {title: "Profit"},
-            {title: "Sales Revenue"},
-            {title: "Customers"},
-            {title: "Products Sold"},
-        ]
+    const recentOrders = [
+        { name: "MacBook Pro" },
+        { name: "iPhone 15 Pro" },
+        { name: "iPad Air" },
+        { name: "Apple Watch" },
+        { name: "AirPods Pro" },
+    ]
 
-        const cardElement = cardInfo.map(function(item, index){
-            return(
-                <Card key={index}
-                    cardTitle={item.title}/>
-            )
-        })
     return(
         <>
-        <aside id="logo-sidebar" className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
-            <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
-                <ul className="pt-4 mt-4 space-y-2 font-medium">
-                    {sidebarElement}
-                </ul>
+            {/* Page Header */}
+            <div className="mb-6">
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Dashboard Overview</h1>
+                <p className="text-gray-600 dark:text-gray-400 mt-1">Welcome back! Here&apos;s what&apos;s happening with your business today.</p>
             </div>
-        </aside>
-        <div className=" p-4 pt-20 mx-2 md:ml-64 bg-gray-100">
-            <div className="grid md:grid-cols-4 grid-cols-2 gap-4">
-                {cardElement}
+
+            {/* Dashboard Content */}
+            {/* Stats Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                {cardInfo.map((item, index) => (
+                    <Card 
+                        key={index}
+                        cardTitle={item.title}
+                        value={item.value}
+                        change={item.change}
+                        changeType={item.changeType}
+                        icon={item.icon}
+                        iconBgColor={item.iconBgColor}
+                    />
+                ))}
             </div>
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-4 p-4 pt-20 mx-2">
-                <Chart/>
-                <Chart/>
+
+            {/* Charts Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <Chart title="Revenue Overview" />
+                <Chart title="Sales Trends" />
             </div>
-        </div>
+
+            {/* Recent Orders Table */}
+            <div className="bg-white rounded-lg shadow-md dark:bg-gray-800">
+                <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Recent Orders</h2>
+                </div>
+                <div className="overflow-x-auto">
+                    <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" className="p-4">
+                                    <div className="flex items-center">
+                                        <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                                    </div>
+                                </th>
+                                <th scope="col" className="px-6 py-3">Product name</th>
+                                <th scope="col" className="px-6 py-3">Color</th>
+                                <th scope="col" className="px-6 py-3">Category</th>
+                                <th scope="col" className="px-6 py-3">Price</th>
+                                <th scope="col" className="px-6 py-3">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {recentOrders.map((order, index) => (
+                                <Table key={index} name={order.name} />
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </>
     )
 }
