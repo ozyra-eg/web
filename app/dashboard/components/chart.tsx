@@ -59,9 +59,9 @@ const RevenueLineChart: React.FC<ChartProps> = ({ title = "Monthly Revenue", dat
     };
 
     return (
-        <div className="bg-white rounded-lg shadow-md p-6 dark:bg-gray-800">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">{title}</h3>
-            <div className="w-full">
+        <div className="bg-beige rounded-lg shadow-md p-6 border border-light-brown/20 flex flex-col h-full">
+            <h3 className="text-lg font-semibold text-dark-brown mb-4">{title}</h3>
+            <div className="w-full flex-1 flex items-center justify-center min-h-[350px]">
                 <Line data={chartData} options={chartOpts} />
             </div>
         </div>

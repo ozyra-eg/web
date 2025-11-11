@@ -15,7 +15,7 @@ export default function PaymentPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
             ),
-            iconBgColor: "bg-green-500"
+            iconBgColor: "bg-brown"
         },
         {
             title: "Pending Payments",
@@ -27,7 +27,7 @@ export default function PaymentPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             ),
-            iconBgColor: "bg-yellow-500"
+            iconBgColor: "bg-light-brown"
         },
         {
             title: "Failed Transactions",
@@ -39,7 +39,7 @@ export default function PaymentPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             ),
-            iconBgColor: "bg-red-500"
+            iconBgColor: "bg-dark-brown"
         },
         {
             title: "Refunds Issued",
@@ -51,7 +51,7 @@ export default function PaymentPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                 </svg>
             ),
-            iconBgColor: "bg-purple-500"
+            iconBgColor: "bg-dark-gray"
         },
     ];
 
@@ -101,8 +101,8 @@ export default function PaymentPage() {
         <>
             {/* Page Header */}
             <div className="mb-6">
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Payments</h1>
-                <p className="text-gray-600 dark:text-gray-400 mt-1">
+                <h1 className="text-2xl font-bold text-dark-brown">Payments</h1>
+                <p className="text-dark-gray mt-1">
                     Manage your payment methods and view transaction history.
                 </p>
             </div>
@@ -125,10 +125,10 @@ export default function PaymentPage() {
             {/* Payment Methods Section */}
             <div className="mb-6">
                 <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    <h2 className="text-xl font-semibold text-dark-brown">
                         Payment Methods
                     </h2>
-                    <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <button className="flex items-center gap-2 px-4 py-2 bg-brown text-beige rounded-lg hover:bg-light-brown transition-colors">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                         </svg>
@@ -149,20 +149,20 @@ export default function PaymentPage() {
             </div>
 
             {/* Recent Transactions */}
-            <div className="bg-white rounded-lg shadow-md dark:bg-gray-800">
-                <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+            <div className="bg-beige rounded-lg shadow-md border border-light-brown/20">
+                <div className="px-6 py-4 border-b border-light-brown/30">
                     <div className="flex items-center justify-between">
-                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        <h2 className="text-lg font-semibold text-dark-brown">
                             Recent Transactions
                         </h2>
-                        <button className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 font-medium">
+                        <button className="text-sm text-brown hover:text-light-brown font-medium">
                             View All
                         </button>
                     </div>
                 </div>
                 <div className="overflow-x-auto">
-                    <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <table className="w-full text-sm text-left text-dark-gray">
+                        <thead className="text-xs text-dark-brown uppercase bg-light-brown/10">
                             <tr>
                                 <th scope="col" className="px-6 py-3">Transaction ID</th>
                                 <th scope="col" className="px-6 py-3">Customer</th>
@@ -177,9 +177,9 @@ export default function PaymentPage() {
                             {recentTransactions.map((transaction) => (
                                 <tr
                                     key={transaction.id}
-                                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                                    className="bg-beige border-b border-light-brown/20 hover:bg-light-brown/10"
                                 >
-                                    <td className="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                    <td className="px-6 py-4 font-medium text-dark-brown">
                                         {transaction.id}
                                     </td>
                                     <td className="px-6 py-4">{transaction.customer}</td>
@@ -192,7 +192,7 @@ export default function PaymentPage() {
                                         </span>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <button className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
+                                        <button className="text-brown hover:text-light-brown font-medium">
                                             View
                                         </button>
                                     </td>

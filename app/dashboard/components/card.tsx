@@ -10,29 +10,29 @@ type CardProps = {
 };
 
 export default function Card(props: CardProps){
-    const { cardTitle, value, change, changeType = 'increase', icon, iconBgColor = 'bg-blue-500' } = props;
+    const { cardTitle, value, change, changeType = 'increase', icon, iconBgColor = 'bg-brown' } = props;
     
     return(
-        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200 dark:bg-gray-800">
+        <div className="bg-beige rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200 border border-light-brown/20">
             <div className="flex items-center justify-between mb-4">
-                <div className={`${iconBgColor} rounded-lg p-3 text-white`}>
+                <div className={`${iconBgColor} rounded-lg p-3 text-beige`}>
                     {icon}
                 </div>
                 {change && (
                     <span className={`text-sm font-semibold ${
                         changeType === 'increase' 
-                            ? 'text-green-600 dark:text-green-400' 
-                            : 'text-red-600 dark:text-red-400'
+                            ? 'text-light-brown' 
+                            : 'text-brown'
                     }`}>
                         {changeType === 'increase' ? '↑' : '↓'} {change}
                     </span>
                 )}
             </div>
             <div>
-                <h3 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
+                <h3 className="text-sm font-medium text-dark-gray mb-1">
                     {cardTitle}
                 </h3>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                <p className="text-2xl font-bold text-dark-brown">
                     {value}
                 </p>
             </div>

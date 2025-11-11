@@ -121,8 +121,8 @@ export default function UpdatesPage() {
         <>
             {/* Page Header */}
             <div className="mb-6">
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Updates & Notifications</h1>
-                <p className="text-gray-600 dark:text-gray-400 mt-1">
+                <h1 className="text-2xl font-bold text-dark-brown">Updates & Notifications</h1>
+                <p className="text-dark-gray mt-1">
                     Stay informed about your business activities and system updates.
                 </p>
             </div>
@@ -130,31 +130,31 @@ export default function UpdatesPage() {
             {/* Filter Tabs */}
             <div className="mb-6">
                 <div className="flex flex-wrap gap-2">
-                    <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <button className="px-4 py-2 bg-brown text-beige rounded-lg hover:bg-light-brown transition-colors">
                         All
                     </button>
-                    <button className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    <button className="px-4 py-2 bg-beige text-dark-brown border border-light-brown/30 rounded-lg hover:bg-light-brown/20 transition-colors">
                         Orders
                     </button>
-                    <button className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    <button className="px-4 py-2 bg-beige text-dark-brown border border-light-brown/30 rounded-lg hover:bg-light-brown/20 transition-colors">
                         Payments
                     </button>
-                    <button className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    <button className="px-4 py-2 bg-beige text-dark-brown border border-light-brown/30 rounded-lg hover:bg-light-brown/20 transition-colors">
                         Customers
                     </button>
-                    <button className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    <button className="px-4 py-2 bg-beige text-dark-brown border border-light-brown/30 rounded-lg hover:bg-light-brown/20 transition-colors">
                         Alerts
                     </button>
                 </div>
             </div>
 
             {/* Updates List */}
-            <div className="bg-white rounded-lg shadow-md dark:bg-gray-800">
-                <div className="divide-y divide-gray-200 dark:divide-gray-700">
+            <div className="bg-beige rounded-lg shadow-md border border-light-brown/20">
+                <div className="divide-y divide-light-brown/20">
                     {updates.map((update) => (
                         <div
                             key={update.id}
-                            className="p-6 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+                            className="p-6 hover:bg-light-brown/10 transition-colors cursor-pointer"
                         >
                             <div className="flex items-start gap-4">
                                 <div className={`flex-shrink-0 ${update.iconBg} ${update.iconColor} p-3 rounded-lg`}>
@@ -163,20 +163,20 @@ export default function UpdatesPage() {
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-start justify-between gap-2">
                                         <div>
-                                            <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                                            <h3 className="text-base font-semibold text-dark-brown">
                                                 {update.title}
                                             </h3>
-                                            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                                            <p className="text-sm text-dark-gray mt-1">
                                                 {update.message}
                                             </p>
                                         </div>
-                                        <button className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                                        <button className="text-dark-gray hover:text-dark-brown">
                                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                             </svg>
                                         </button>
                                     </div>
-                                    <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
+                                    <p className="text-xs text-dark-gray/70 mt-2">
                                         {update.time}
                                     </p>
                                 </div>
@@ -188,7 +188,7 @@ export default function UpdatesPage() {
 
             {/* Load More Button */}
             <div className="mt-6 text-center">
-                <button className="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                <button className="px-6 py-3 border border-light-brown/30 text-dark-brown rounded-lg hover:bg-light-brown/20 transition-colors">
                     Load More Updates
                 </button>
             </div>

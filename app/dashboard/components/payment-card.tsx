@@ -35,14 +35,14 @@ export default function PaymentCard({ cardType, lastFour, expiryDate, isDefault 
     };
 
     return (
-        <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-shadow duration-200">
+        <div className="relative bg-gradient-to-br from-dark-brown to-brown rounded-xl p-6 text-beige shadow-lg hover:shadow-xl transition-shadow duration-200">
             {isDefault && (
-                <span className="absolute top-4 right-4 text-xs font-semibold bg-blue-500 px-2 py-1 rounded-full">
+                <span className="absolute top-4 right-4 text-xs font-semibold bg-light-brown px-2 py-1 rounded-full text-beige">
                     Default
                 </span>
             )}
             <div className="flex justify-between items-start mb-8">
-                <div className="text-sm font-medium text-gray-400">
+                <div className="text-sm font-medium text-beige/80">
                     {cardType}
                 </div>
                 {getCardIcon()}
@@ -53,10 +53,10 @@ export default function PaymentCard({ cardType, lastFour, expiryDate, isDefault 
                 </div>
                 <div className="flex justify-between items-center text-sm">
                     <div>
-                        <div className="text-xs text-gray-400 mb-1">Expires</div>
+                        <div className="text-xs text-beige/70 mb-1">Expires</div>
                         <div className="font-medium">{expiryDate}</div>
                     </div>
-                    <button className="text-xs text-gray-400 hover:text-white transition-colors">
+                    <button className="text-xs text-beige/70 hover:text-beige transition-colors">
                         Edit
                     </button>
                 </div>

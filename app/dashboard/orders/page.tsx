@@ -14,7 +14,7 @@ export default function OrdersPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
             ),
-            iconBgColor: "bg-blue-500"
+            iconBgColor: "bg-brown"
         },
         {
             title: "Pending",
@@ -26,7 +26,7 @@ export default function OrdersPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             ),
-            iconBgColor: "bg-yellow-500"
+            iconBgColor: "bg-light-brown"
         },
         {
             title: "Processing",
@@ -38,7 +38,7 @@ export default function OrdersPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
             ),
-            iconBgColor: "bg-purple-500"
+            iconBgColor: "bg-dark-brown"
         },
         {
             title: "Completed",
@@ -50,7 +50,7 @@ export default function OrdersPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             ),
-            iconBgColor: "bg-green-500"
+            iconBgColor: "bg-dark-gray"
         },
     ];
 
@@ -81,8 +81,8 @@ export default function OrdersPage() {
         <>
             {/* Page Header */}
             <div className="mb-6">
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">My Orders</h1>
-                <p className="text-gray-600 dark:text-gray-400 mt-1">
+                <h1 className="text-2xl font-bold text-dark-brown">My Orders</h1>
+                <p className="text-dark-gray mt-1">
                     Track and manage all your orders in one place.
                 </p>
             </div>
@@ -103,14 +103,14 @@ export default function OrdersPage() {
             </div>
 
             {/* Orders Table */}
-            <div className="bg-white rounded-lg shadow-md dark:bg-gray-800">
-                <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+            <div className="bg-beige rounded-lg shadow-md border border-light-brown/20">
+                <div className="px-6 py-4 border-b border-light-brown/30">
                     <div className="flex items-center justify-between flex-wrap gap-4">
-                        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        <h2 className="text-lg font-semibold text-dark-brown">
                             All Orders
                         </h2>
                         <div className="flex items-center gap-3">
-                            <select className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            <select className="px-4 py-2 border border-light-brown/50 rounded-lg text-sm focus:ring-2 focus:ring-brown bg-beige text-dark-brown">
                                 <option>All Status</option>
                                 <option>Pending</option>
                                 <option>Processing</option>
@@ -118,7 +118,7 @@ export default function OrdersPage() {
                                 <option>Delivered</option>
                                 <option>Cancelled</option>
                             </select>
-                            <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                            <button className="flex items-center gap-2 px-4 py-2 bg-brown text-beige rounded-lg hover:bg-light-brown transition-colors">
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                                 </svg>
@@ -128,8 +128,8 @@ export default function OrdersPage() {
                     </div>
                 </div>
                 <div className="overflow-x-auto">
-                    <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <table className="w-full text-sm text-left text-dark-gray">
+                        <thead className="text-xs text-dark-brown uppercase bg-light-brown/10">
                             <tr>
                                 <th scope="col" className="px-6 py-3">Order ID</th>
                                 <th scope="col" className="px-6 py-3">Customer</th>
@@ -145,9 +145,9 @@ export default function OrdersPage() {
                             {orders.map((order) => (
                                 <tr
                                     key={order.id}
-                                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                                    className="bg-beige border-b border-light-brown/20 hover:bg-light-brown/10"
                                 >
-                                    <td className="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                    <td className="px-6 py-4 font-medium text-dark-brown">
                                         {order.id}
                                     </td>
                                     <td className="px-6 py-4">{order.customer}</td>
@@ -161,7 +161,7 @@ export default function OrdersPage() {
                                         </span>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <button className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
+                                        <button className="text-brown hover:text-light-brown font-medium">
                                             View
                                         </button>
                                     </td>

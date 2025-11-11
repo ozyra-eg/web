@@ -66,23 +66,23 @@ export default function DashboardSidebar({ isOpen, onClose }: SidebarProps) {
     <aside
       className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${
         isOpen ? "translate-x-0" : "-translate-x-full"
-      } md:translate-x-0 bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700`}
+      } md:translate-x-0 bg-beige border-r border-light-brown/30`}
       aria-label="Dashboard Sidebar"
     >
       <div className="h-full flex flex-col">
         {/* Logo/Brand */}
-        <div className="flex items-center justify-between px-4 py-5 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex items-center justify-between px-4 py-5 border-b border-light-brown/30">
           <Link href="/dashboard" className="flex items-center">
-            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-blue-600 text-white font-bold text-xl">
+            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-brown text-beige font-bold text-xl">
               L
             </div>
-            <span className="ml-3 text-xl font-semibold text-gray-900 dark:text-white">
+            <span className="ml-3 text-xl font-semibold text-dark-brown">
               LocallyCo
             </span>
           </Link>
           <button
             onClick={onClose}
-            className="md:hidden p-2 text-gray-600 rounded-lg hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
+            className="md:hidden p-2 text-dark-brown rounded-lg hover:bg-light-brown/20"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path
@@ -101,9 +101,9 @@ export default function DashboardSidebar({ isOpen, onClose }: SidebarProps) {
               <li key={index}>
                 <Link
                   href={item.href}
-                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group transition-colors duration-200"
+                  className="flex items-center p-2 text-dark-brown rounded-lg hover:bg-light-brown/20 group transition-colors duration-200"
                 >
-                  <span className="text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
+                  <span className="text-dark-gray group-hover:text-brown">
                     {item.icon}
                   </span>
                   <span className="ms-3">{item.title}</span>
@@ -114,16 +114,16 @@ export default function DashboardSidebar({ isOpen, onClose }: SidebarProps) {
         </div>
 
         {/* User Profile */}
-        <div className="px-4 py-4 border-t border-gray-200 dark:border-gray-700">
+        <div className="px-4 py-4 border-t border-light-brown/30">
           <div className="flex items-center">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-semibold">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-light-brown text-beige font-semibold">
               JD
             </div>
             <div className="ml-3">
-              <p className="text-sm font-medium text-gray-900 dark:text-white">
+              <p className="text-sm font-medium text-dark-brown">
                 John Doe
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-dark-gray">
                 john@example.com
               </p>
             </div>
