@@ -3,9 +3,6 @@ import Card from "./components/card";
 import Chart from "./components/chart";
 import PieChart from "./components/pie-chart";
 import Table from "./components/table";
-import Navbar from "../components/NavBar";
-
-import Footer from "../components/Footer";
 
 export default function Page() {
 
@@ -110,8 +107,6 @@ export default function Page() {
 
   return (
     <>
-      {/* Navbar */}
-      <Navbar />
       {/* Page Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-dark-brown">
@@ -194,9 +189,6 @@ export default function Page() {
           </table>
         </div>
       </div>
-      {/* Footer */}
-      <Footer />
-
     </>
   );
 }

@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import DashboardSidebar from "./components/sidebar";
+import Navbar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 export default function DashboardLayout({
     children,
@@ -12,6 +14,9 @@ export default function DashboardLayout({
 
     return (
         <>
+            {/* Navbar */}
+            <Navbar />
+            
             {/* Mobile sidebar backdrop */}
             {sidebarOpen && (
                 <div 
@@ -63,7 +68,11 @@ export default function DashboardLayout({
                 <main className="p-4 pt-20 min-h-screen bg-beige/50">
                     {children}
                 </main>
+
+                {/* Footer */}
+                <Footer />
             </div>
+
         </>
     );
 }

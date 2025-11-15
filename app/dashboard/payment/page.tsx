@@ -79,12 +79,12 @@ export default function PaymentPage() {
 
     // Recent transactions
     const recentTransactions = [
-        { id: "TXN-001", customer: "John Doe", amount: "$450.00", status: "Completed", date: "2025-11-10", method: "Visa ••4532" },
-        { id: "TXN-002", customer: "Jane Smith", amount: "$1,250.00", status: "Completed", date: "2025-11-10", method: "Mastercard ••8765" },
-        { id: "TXN-003", customer: "Bob Johnson", amount: "$350.00", status: "Pending", date: "2025-11-09", method: "Visa ••4532" },
-        { id: "TXN-004", customer: "Alice Williams", amount: "$890.00", status: "Failed", date: "2025-11-09", method: "Card ••2468" },
-        { id: "TXN-005", customer: "Charlie Brown", amount: "$2,100.00", status: "Completed", date: "2025-11-08", method: "Visa ••4532" },
-        { id: "TXN-006", customer: "Diana Prince", amount: "$675.00", status: "Refunded", date: "2025-11-08", method: "Mastercard ••8765" },
+        { id: "TXN-001", customer: "John Doe", amount: "$450.00", status: "Completed", date: "2025-11-10", method: "Visa" },
+        { id: "TXN-002", customer: "Jane Smith", amount: "$1,250.00", status: "Completed", date: "2025-11-10", method: "Mastercard" },
+        { id: "TXN-003", customer: "Bob Johnson", amount: "$350.00", status: "Pending", date: "2025-11-09", method: "Visa" },
+        { id: "TXN-004", customer: "Alice Williams", amount: "$890.00", status: "Failed", date: "2025-11-09", method: "Cash" },
+        { id: "TXN-005", customer: "Charlie Brown", amount: "$2,100.00", status: "Completed", date: "2025-11-08", method: "Visa" },
+        { id: "TXN-006", customer: "Diana Prince", amount: "$675.00", status: "Refunded", date: "2025-11-08", method: "Mastercard" },
     ];
 
     const getStatusBadge = (status: string) => {
@@ -123,7 +123,7 @@ export default function PaymentPage() {
             </div>
 
             {/* Payment Methods Section */}
-            <div className="mb-6">
+            {/* <div className="mb-6">
                 <div className="flex items-center justify-between mb-4">
                     <h2 className="text-xl font-semibold text-dark-brown">
                         Payment Methods
@@ -146,7 +146,7 @@ export default function PaymentPage() {
                         />
                     ))}
                 </div>
-            </div>
+            </div> */}
 
             {/* Recent Transactions */}
             <div className="bg-beige rounded-lg shadow-md border border-light-brown/20">
