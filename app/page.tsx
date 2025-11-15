@@ -89,14 +89,14 @@ export default function NoonNavbar() {
   </div>
 
   {/* ✨ Hero Text on Top of Sphere */}
-  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-black px-4">
+  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-[#19100a]v px-4">
     <h1 className="font-extrabold mb-4 tracking-tight">
       <span className="text-[clamp(2rem,5vw,6rem)] font-extrabold">
         Arrival of{" "}
       </span>
       <RotatingText
         texts={["Outfit", "Collection", "Style"]}
-        mainClassName="text-[clamp(2rem,5vw,6rem)] font-extrabold text-black inline-block bg-[#FFFCF2]  px-4 py-2 rounded-3xl shadow-md"
+        mainClassName="text-[clamp(2rem,5vw,6rem)] font-extrabold text-[#19100a] inline-block bg-[#FFFCF2]  px-4 py-2 rounded-3xl shadow-md"
         staggerFrom="last"
         initial={{ y: "100%", opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -105,18 +105,6 @@ export default function NoonNavbar() {
       />
     </h1>
 
-  <motion.p
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1, delay: 0.3 }}
-  className="text-lg md:text-xl max-w-2xl mb-6 text-black"
-  style={{
-    textShadow: "0 0 4px white, 0 0 8px white" // creates soft white outline
-  }}
->
-  Discover quality fashion that reflects your style and makes
-  everyday enjoyable.
-</motion.p>
 
     <motion.button
       initial={{ opacity: 0, scale: 0.9 }}
@@ -147,12 +135,12 @@ export default function NoonNavbar() {
       <section className="bg-[#FFFCF2] pb-7 ">
         <div className="h-full flex flex-col justify-start">
           {/* Blue section full width */}
-          <section className="w-full mt-[32px] bg-[#1b365d] px-[32px] pb-[32px] py-6">
+          <section className="w-full mt-[32px] bg-[url('/TbrandsBackgd.jpg')] bg-cover bg-center bg-no-repeat px-[32px] pb-[32px] py-6">
             <div className="relative mb-[24px]  py-3">
               {/* Desktop & tablet view (centered heading, floating button) */}
               <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-white">
                 Trending Brands
-                <span className="block w-16 h-1 bg-gradient-to-r from-amber-400 to-pink-500 rounded-full mx-auto mt-4"></span>
+                
               </h2>
 
               <Link
@@ -234,9 +222,10 @@ export default function NoonNavbar() {
       <section className="container mx-auto my-[32px] gap-8 rounded-2xl">
         {/* Flash Deals */}
         <div className="bg-[#A52A2A] p-4 rounded-2xl shadow-2xl">
-          <h2 className="text-3xl font-bold mb-4 text-center text-[#F0DEC9]">
-            Flash deals
-          </h2>
+          <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-white">
+                Flash Deals
+                
+              </h2>
 
           <Swiper
             className=""
@@ -275,9 +264,10 @@ export default function NoonNavbar() {
 
         {/* Recommended for You */}
         <div className="bg-dark-brown p-4 rounded-2xl shadow mt-20">
-          <h2 className="text-3xl font-bold mb-4 text-center text-[#E9EAEB]">
-            Recommended for you
-          </h2>
+         <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-white">
+                Recommended for You
+                
+              </h2>
           <Swiper
             modules={[Autoplay]}
             spaceBetween={20}

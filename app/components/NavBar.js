@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineFavorite } from "react-icons/md";
-import { FaLocationDot } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
@@ -16,15 +15,15 @@ export default function Navbar() {
       <div className="max-w-screen-2xl flex items-center justify-between mx-auto px-6 ">
         {/* Left - Logo */}
         <Link href="/" className="flex items-center ">
-          <Image src={"/logo2.png"} alt={"logo"} width={120} height={120} className="w-30 h-20 object-cover"  />
+          <Image src={"/logo23.png"} alt={"logo"} width={120} height={120} className="w-30 h-20 object-cover"  />
         </Link>
 
         <div className="flex  gap-3">
           {/* Deliver to location */}
-          <div className="flex items-center gap-1 ml-6 text-sm text-dark-brown cursor-pointer ">
-            <FaLocationDot />
-            <span className="text-xs">Deliver text-sto Cairo, Egypt</span>
-          </div>
+<div className="flex items-center gap-1 ml-6 text-sm text-dark-brown cursor-pointer">
+  <img src="/Egy.webp" alt="Egypt Flag" className="w-6 h-4" />
+  <span className="text-xs">Deliver to</span>
+</div>
 
           {/* Search Bar */}
           <div className="mx-6">
@@ -103,6 +102,12 @@ export default function Navbar() {
                   className="block px-4 py-2 text-[#0B0B0B] hover:bg-beige transition"
                 >
                   My Orders
+                </Link>
+                   <Link
+                  href="/dashboard"
+                  className="block px-4 py-2 text-[#0B0B0B] hover:bg-beige transition"
+                >
+                  My dashboard
                 </Link>
                 <Link
                   href="/SignIn"

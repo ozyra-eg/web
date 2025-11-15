@@ -59,10 +59,10 @@ export default function Categories({ data }) {
         {/* Header Row */}
         <div className="relative mb-[24px] py-3">
           {/* Desktop & tablet view (centered heading, floating button) */}
-          <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-black">
-            Categories
-            <span className="block w-16 h-1 bg-gradient-to-r from-amber-400 to-pink-500 rounded-full mx-auto mt-4"></span>
-          </h2>
+           <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-[#19100a]">
+                Our Categories
+                
+              </h2>
 
           <Link
             href="/categories"
