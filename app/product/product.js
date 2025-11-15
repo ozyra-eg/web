@@ -5,13 +5,14 @@ import ReviewCard from "../components/ReviewCard";
 import AttributeSection from "../components/AttributeSection";
 import ProductPrice from "../components/ProductPrice";
 import { getBestDiscountAmount } from "./utils";
+import { useFetch } from "../hooks/useFetch";
 
 export default function BambiBabyTeeProductPage() {
   // defaults while loading
   const [images, setImages] = useState(["https://prd.place/400?id=5&p=40", "https://prd.place/400?id=6&p=40", "https://prd.place/400?id=7&p=40"]);
 
   // TODO: set productId from props or route in future; default to 30 for now
-  const [productId, setProductId] = useState(5);
+  const [productId, setProductId] = useState(12);
   const [currentProduct, setCurrentProduct] = useState({});
   const [currentVersion, setCurrentVersion] = useState(null);
   const [skuCode, setSkuCode] = useState("");
@@ -35,7 +36,7 @@ export default function BambiBabyTeeProductPage() {
       setError(null);
       try {
         // TODO: get product's (id, name, etc...) from the preview page
-        const res = await fetch(`http://localhost:8888/api/v1/products/${productId}?review=3&category&brand`);
+        const res = await fetch(`/api/products/${productId}?review=3&category&brand`);
         if (!res.ok) console.warn(`fetch failed: ${res.status}`);
         let productData = await res.json();
         productData = productData.result;
@@ -47,7 +48,7 @@ export default function BambiBabyTeeProductPage() {
         setRatingStats(productData?.ratingStats || ratingStats);
 
         // fetch product's versions
-        const resultRes = await fetch(`http://localhost:8888/api/v1/products/${productId}/versions`);
+        const resultRes = await fetch(`/api/products/${productId}/versions`);
         if (!resultRes.ok) console.warn(`fetch failed: ${resultRes.status}`);
         const resultData = await resultRes.json();
         setProductVersions(resultData.result);
@@ -64,7 +65,7 @@ export default function BambiBabyTeeProductPage() {
         setSelectedOptions(() => currVersion?.attributes);
 
         // fetch discounts based on product, category, and brand ids
-        const discountsRes = await fetch(`http://localhost:8888/api/v1/discounts?product=${productId}&brand=${productData?.brandId}&category=${productData?.categoryId}`);
+        const discountsRes = await fetch(`/api/discounts?product=${productId}&brand=${productData?.brandId}&category=${productData?.categoryId}`);
         if (!discountsRes.ok) console.warn(`fetch failed: ${discountsRes.status}`);
         const discountData = await discountsRes.json();
         console.log("discount data: ", discountData);
@@ -76,7 +77,7 @@ export default function BambiBabyTeeProductPage() {
         setBestDiscount(bestDis);
 
         // handle related products
-        const relatedRes = await fetch(`http://localhost:8888/api/v1/products/${productId}/relevant?score=0`);
+        const relatedRes = await fetch(`/api/products/${productId}/relevant?score=0`);
         if (!relatedRes.ok) console.worn(`fetch failed ${relatedRes.status}`);
         const relatedData = await relatedRes.json();
         setRelatedProducts(relatedData?.result);

@@ -1,12 +1,19 @@
 import { useState, useEffect } from "react";
-import { CategoriesResponse } from "../types";
+import { ApiResponse } from "../types";
 
-export function useFetch(url: string) {
-    const [data, setData] = useState<CategoriesResponse|null>(null);
+export function useFetch(url: string | null) {
+    // TODO: generalize this hook
+    const [data, setData] = useState<ApiResponse | null>(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string|null>(null);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
+        // Don't fetch if URL is null
+        if (!url) {
+            setLoading(false);
+            return;
+        }
+
         // async function inside useEffect
         // because useEffect callback can't be async directly
         const fetchData = async () => {

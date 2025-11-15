@@ -20,6 +20,11 @@ export interface Category {
     deletedAt?: Date;
 }
 
+export interface ApiResponse {
+    result: Array<Record<string, string | number>>;
+    message?: string;
+}
+
 export interface CategoriesResponse {
     result: Category[]
 }

@@ -40,235 +40,10 @@ import TiltedWrapper from "./components/TiltedWrapper.js";
 import { useFetch } from "./hooks/useFetch";
 
 export default function NoonNavbar() {
-  const brands = [
-    {
-      name: "airjordan",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/airjordan.jpg",
-    },
-    {
-      name: "nike",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/nike.png",
-    },
-    {
-      name: "puma",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/pumablack.png",
-    },
-    {
-      name: "airjordan",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/airjordan.jpg",
-    },
-    {
-      name: "puma",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/pumablack.png",
-    },
-    {
-      name: "adidas",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/adidas3.jpg",
-    },
-    {
-      name: "airjordan",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/airjordan.jpg",
-    },
-    {
-      name: "nike",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/nike.png",
-    },
-    {
-      name: "puma",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/pumablack.png",
-    },
-    {
-      name: "adidas",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/adidas3.jpg",
-    },
-    {
-      name: "airjordan",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/airjordan.jpg",
-    },
-    {
-      name: "nike",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/nike.png",
-    },
-    {
-      name: "puma",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/pumablack.png",
-    },
-    {
-      name: "adidas",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/adidas3.jpg",
-    },
-    {
-      name: "airjordan",
-      products: 250,
-      rating: 4.6,
-      reviews: 150,
-      categories: ["Clothing", "Shoes"],
-      image: "/airjordan.jpg",
-    },
-  ];
-
-  const flashDeals = [
-    {
-      name: "Dior Sauvage Parfum Spray",
-      price: "500 EGP",
-      rating: 4.0,
-      reviews: 120,
-      image: "/shoes6.jpg",
-      brand: "Dior", // ✅ added
-      badge: "Limited Offer", // ✅ added
-    },
-    {
-      name: "Armani Code Eau de Toilette",
-      price: "750 EGP",
-      rating: 4.5,
-      reviews: 95,
-      image: "/shoes6.jpg",
-      brand: "Armani",
-      badge: "Best Seller",
-    },
-    {
-      name: "Gucci Bloom Eau de Parfum",
-      price: "900 EGP",
-      rating: 4.3,
-      reviews: 140,
-      image: "/shoes6.jpg",
-      brand: "Gucci",
-      badge: "Hot Deal",
-    },
-    {
-      name: "Gucci Bloom Eau de Parfum",
-      price: "900 EGP",
-      rating: 4.3,
-      reviews: 140,
-      image: "/shoes6.jpg",
-      brand: "Gucci",
-      badge: "Hot Deal",
-    },
-    {
-      name: "Gucci Bloom Eau de Parfum",
-      price: "900 EGP",
-      rating: 4.3,
-      reviews: 140,
-      image: "/shoes6.jpg",
-      brand: "Gucci",
-      badge: "Hot Deal",
-    },
-  ];
-
-  const recommended = [
-    {
-      name: "Versace Eros Flame",
-      price: "650 EGP",
-      rating: 4.2,
-      reviews: 100,
-      image: "/tshirt3.jpg",
-      brand: "Dior",
-      badge: "Limited Offer",
-    },
-    {
-      name: "Chanel Bleu de Chanel",
-      price: "1100 EGP",
-      rating: 4.8,
-      reviews: 200,
-      image: "/shirt.jpg",
-      brand: "Dior",
-      badge: "Limited Offer",
-    },
-    {
-      name: "YSL La Nuit de L’Homme",
-      price: "850 EGP",
-      rating: 4.6,
-      reviews: 170,
-      image: "/shorts.jpg",
-      brand: "Dior",
-      badge: "Limited Offer",
-    },
-    {
-      name: "YSL La Nuit de L’Homme",
-      price: "850 EGP",
-      rating: 4.6,
-      reviews: 170,
-      image: "/shorts.jpg",
-      brand: "Dior",
-      badge: "Limited Offer",
-    },
-    {
-      name: "YSL La Nuit de L’Homme",
-      price: "850 EGP",
-      rating: 4.6,
-      reviews: 170,
-      image: "/shorts.jpg",
-      brand: "Dior",
-      badge: "Limited Offer",
-    },
-    {
-      name: "YSL La Nuit de L’Homme",
-      price: "850 EGP",
-      rating: 4.6,
-      reviews: 170,
-      image: "/shorts.jpg",
-      brand: "Dior",
-      badge: "Limited Offer",
-    },
-  ];
-
-  const { data: categoriesData, loading: loadingCategories, error: categoriesError } = useFetch('http://localhost:8888/api/v1/categories?images&names=shorts,shoes,t-shirts,shirts,pants,hoodies');
+  const { data: categoriesData, loading: loadingCategories, error: categoriesError } = useFetch('/api/home/categories?images&names=shorts,shoes,t-shirts,shirts,pants,hoodies');
+  const { data: brandsData, loading: loadingBrands, error: brandsError } = useFetch('/api/home/brands');
+  const { data: discountsData, loading: loadingDiscounts, error: discountsError } = useFetch('/api/home/discounts');
+  const { data: recommendedProductsData, loading: loadingRecommendedProducts, error: recommendedProductsError } = useFetch('/api/home/products/recommended');
 
   return (
     <>
@@ -421,7 +196,7 @@ export default function NoonNavbar() {
               pagination={{ clickable: true }}
               className="pb-10 overflow-visible"
             >
-              {brands.map((brand, index) => (
+              {brandsData && brandsData.result.map((brand, index) => (
                 <SwiperSlide
                   key={index}
                   className="flex justify-center overflow-visible"
@@ -478,7 +253,7 @@ export default function NoonNavbar() {
               disableOnInteraction: false, // continue autoplay after interaction
             }}
           >
-            {flashDeals.map((deal, index) => (
+            {discountsData && discountsData.result.map((deal, index) => (
               <SwiperSlide className="py-5 px-4" key={index}>
                 <TiltedWrapper scaleOnHover={1.1}>
                   <Link href="/product" className="link">
@@ -517,7 +292,7 @@ export default function NoonNavbar() {
               disableOnInteraction: false, // continue autoplay after interaction
             }}
           >
-            {recommended.map((item, index) => (
+            {recommendedProductsData && recommendedProductsData.result.map((item, index) => (
               <SwiperSlide className="py-5 px-4" key={index}>
                 <TiltedWrapper scaleOnHover={1.05}>
                   <Link href="/product" className="link">
