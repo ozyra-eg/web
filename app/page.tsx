@@ -38,12 +38,14 @@ import TiltedCard from "./components/TiltedCard";
 import HomeProductCard from "./components/HomeProductCard";
 import TiltedWrapper from "./components/TiltedWrapper.js";
 import { useFetch } from "./hooks/useFetch";
+import { Brand, Category, Discount, HomePageDiscount, Product } from "./types";
 
 export default function NoonNavbar() {
-  const { data: categoriesData, loading: loadingCategories, error: categoriesError } = useFetch('/api/home/categories?images&names=shorts,shoes,t-shirts,shirts,pants,hoodies');
-  const { data: brandsData, loading: loadingBrands, error: brandsError } = useFetch('/api/home/brands');
-  const { data: discountsData, loading: loadingDiscounts, error: discountsError } = useFetch('/api/home/discounts');
-  const { data: recommendedProductsData, loading: loadingRecommendedProducts, error: recommendedProductsError } = useFetch('/api/home/products/recommended');
+  const { data: categoriesData, loading: loadingCategories, error: categoriesError } = useFetch<Category>('/api/home/categories?images&names=shorts,shoes,t-shirts,shirts,pants,hoodies');
+  const { data: brandsData, loading: loadingBrands, error: brandsError } = useFetch<Brand>('/api/home/brands');
+  const { data: discountsData, loading: loadingDiscounts, error: discountsError } = useFetch<HomePageDiscount>('/api/home/discounts');
+  const { data: recommendedProductsData, loading: loadingRecommendedProducts, error: recommendedProductsError } = useFetch<Product>('/api/home/products/recommended');
+  console.log("recommended Products:", recommendedProductsData);
 
   return (
     <>
@@ -287,10 +289,10 @@ export default function NoonNavbar() {
                 <TiltedWrapper scaleOnHover={1.05}>
                   <Link href="/product" className="link">
                   <HomeProductCard
-                  imageSrc={item.image}
-                  brand={item.brand || "Brand Name"} // fallback if no brand
+                  imageSrc={item.imageUrl ?? "/beige logo.png"}
+                  brand={(item.brand)? item.brand.name : "Brand Name"} // fallback if no brand
                   title={item.name}
-                  price={item.price}
+                  price={`${(item.priceCent / 100)} EGP`}
                   badge={item.badge || null} // optional badge
                   onAddToCart={() => console.log(`Add to cart: ${item.name}`)}
                   onBuyNow={() => console.log(`Buy now: ${item.name}`)}

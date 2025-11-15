@@ -4,9 +4,10 @@ import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import Masonry from "./Masonry";
 import { useFetch } from "../hooks/useFetch";
+import { Category } from "../types";
 
 export default function CategoriesPage() {
-  const { data, loading, error } = useFetch('/api/categories?images&children&name=winter collection');
+  const { data, loading, error } = useFetch<Category>('/api/categories?images&children&name=winter collection');
   
   // TODO: handle the UI for these states
   if (! data) return <div>No Categories Found.</div>;

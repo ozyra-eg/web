@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { ApiResponse } from "../types";
 
-export function useFetch(url: string | null) {
+export function useFetch<resource>(url: string | null) {
     // TODO: generalize this hook
-    const [data, setData] = useState<ApiResponse | null>(null);
+    const [data, setData] = useState<ApiResponse<resource> | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
