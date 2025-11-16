@@ -6,14 +6,14 @@ import ReviewCard from "../components/ReviewCard";
 import AttributeSection from "../components/AttributeSection";
 import ProductPrice from "../components/ProductPrice";
 import { getBestDiscountAmount } from "./utils";
-import { useFetch } from "../hooks/useFetch";
 
 export default function BambiBabyTeeProductPage() {
   // defaults while loading
   const [images, setImages] = useState(["https://prd.place/400?id=5&p=40", "https://prd.place/400?id=6&p=40", "https://prd.place/400?id=7&p=40"]);
 
   // TODO: set productId from props or route in future; default to 30 for now
-  const [productId, setProductId] = useState(12);
+  // TODO: handle product not found (404) case
+  const [productId, setProductId] = useState(2);
   const [currentProduct, setCurrentProduct] = useState({});
   const [currentVersion, setCurrentVersion] = useState(null);
   const [skuCode, setSkuCode] = useState("");
