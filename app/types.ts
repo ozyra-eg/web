@@ -72,6 +72,14 @@ export interface Product {
     badge?: string;
 }
 
+/*----- Address Data -----*/
+export interface Address {
+    id: number;
+    name: string;
+    details: string;
+    phone: string;
+}
+
 /*----- API Response -----*/
 export type ApiResponse<resource> = {
     result: resource[];

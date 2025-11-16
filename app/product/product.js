@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { Rating, RatingStar, Button, Badge } from "flowbite-react";
 import ReviewCard from "../components/ReviewCard";
 import AttributeSection from "../components/AttributeSection";
@@ -144,7 +145,7 @@ export default function BambiBabyTeeProductPage() {
         {/* Breadcrumbs */}
         <nav className="text-sm text-gray-600 mb-4" aria-label="Breadcrumb">
           <ol className="flex gap-2 items-center">
-            <li><a href="/" className="hover:underline">Home</a></li>
+            <li><Link href="/" className="hover:underline">Home</Link></li>
             <li>/</li>
             <li><a href="/products" className="hover:underline">Products</a></li>
             <li>/</li>
