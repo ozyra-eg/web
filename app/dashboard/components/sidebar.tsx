@@ -113,22 +113,7 @@ export default function DashboardSidebar({ isOpen, onClose }: SidebarProps) {
           </ul>
         </div>
 
-        {/* User Profile */}
-        <div className="px-4 py-4 border-t border-light-brown/30">
-          <div className="flex items-center">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-light-brown text-beige font-semibold">
-              JD
-            </div>
-            <div className="ml-3">
-              <p className="text-sm font-medium text-dark-brown">
-                John Doe
-              </p>
-              <p className="text-xs text-dark-gray">
-                john@example.com
-              </p>
-            </div>
-          </div>
-        </div>
+  
       </div>
     </aside>
   );

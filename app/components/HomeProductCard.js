@@ -28,14 +28,15 @@ export default function HomeProductCard({
   };
 
   return (
-    <div className="group bg-[#F0DEC9] rounded-3xl hover:shadow-lg transition overflow-hidden border-[2px] border-gray-500 ">
+    <div className="group bg-[#F0DEC9] rounded-3xl hover:shadow-lg transition overflow-hidden border-[2px] border-gray-500">
+      
       {/* Image wrapper */}
-      <div className="relative w-full h-[220px]">
+      <div className="relative w-full h-[300px] md:h-[350px]">
         <Image
           src={imageSrc}
           alt={title}
           fill
-          className="object-cover rounded-4xl p-4"
+          className="object-cover "
         />
 
         {badge && (
@@ -68,6 +69,7 @@ export default function HomeProductCard({
         </button>
       </div>
 
+      {/* Product info */}
       <div className="p-4 pt-[0px]">
         {brand && <p className="text-sm text-gray-500">{brand}</p>}
         <h3 className="font-semibold text-gray-800 truncate">{title}</h3>

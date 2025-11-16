@@ -49,6 +49,7 @@ export default function NoonNavbar() {
 
   return (
     <>
+    
     <div className="bg-[#FFFCF2]">
       <NavBar />
   
@@ -113,7 +114,7 @@ export default function NoonNavbar() {
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay: 0.6 }}
       type="button"
-      className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-[#5C0B00] rounded-full shadow hover:bg-[#94492e] focus:ring-2 focus:ring-offset-2 focus:ring-white"
+      className="inline-flex items-center px-6 py-3 text-base font-medium text-[#FFFCF2] bg-[#5C0B00] rounded-full shadow hover:bg-[#94492e] focus:ring-2 focus:ring-offset-2 focus:ring-white  hover:shadow-lg hover:scale-105 transition-all duration-300 "
     >
       Explore Products
       <svg
@@ -140,21 +141,21 @@ export default function NoonNavbar() {
           <section className="w-full mt-[32px] bg-[url('/TbrandsBackgd.jpg')] bg-cover bg-center bg-no-repeat px-[32px] pb-[32px] py-6">
             <div className="relative mb-[24px]  py-3">
               {/* Desktop & tablet view (centered heading, floating button) */}
-              <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-white">
+              <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-[#FFFCF2]">
                 Trending Brands
                 
               </h2>
 
               <Link
                 href="/checkout"
-                className="hidden sm:block absolute right-4 top-1/2 -translate-y-1/2 link px-4 py-2 rounded-full bg-white text-[#1b365d] font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 hover:bg-gray-200"
+                className="hidden sm:block absolute right-4 top-1/2 -translate-y-1/2 link px-4 py-2 rounded-full bg-[#5C0B00] text-[#FFFCF2] font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 hover:bg-gray-200"
               >
                 View all
               </Link>
 
               {/* Mobile view (left heading + button on right in flex row) */}
               <div className="flex items-center justify-between sm:hidden px-5">
-                <h2 className="text-[30px] font-bold text-white">Trending Brands
+                <h2 className="text-[30px] font-bold text-[#FFFCF2]">Trending Brands
                   <span className="block w-16 h-1 bg-gradient-to-r from-amber-400 to-pink-500 rounded-full mx-auto mt-4"></span>
                 </h2>
                 
@@ -224,7 +225,7 @@ export default function NoonNavbar() {
       <section className="container mx-auto my-[32px] gap-8 rounded-2xl">
         {/* Flash Deals */}
         <div className="bg-[#A52A2A] p-4 rounded-2xl shadow-2xl">
-          <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-white">
+          <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-[#FFFCF2]">
                 Flash Deals
                 
               </h2>
@@ -266,7 +267,7 @@ export default function NoonNavbar() {
 
         {/* Recommended for You */}
         <div className="bg-dark-brown p-4 rounded-2xl shadow mt-20">
-         <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-white">
+         <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-[#FFFCF2]">
                 Recommended for You
                 
               </h2>
