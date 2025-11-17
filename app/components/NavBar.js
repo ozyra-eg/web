@@ -12,30 +12,36 @@ export default function Navbar() {
 
   return (
     <nav className="bg-beige sticky top-0 z-50 shadow-2xs">
-      <div className="max-w-screen-2xl flex items-center justify-between mx-auto px-6 ">
+      <div className="max-w-screen-2xl flex items-center justify-between mx-auto px-3 sm:px-6 gap-2 sm:gap-4">
         {/* Left - Logo */}
-        <Link href="/" className="flex items-center ">
-          <Image src={"/logo23.png"} alt={"logo"} width={120} height={120} className="w-30 h-20 object-cover"  />
+        <Link href="/" className="flex items-center flex-shrink-0">
+          <Image
+            src={"/logo23.png"}
+            alt={"logo"}
+            width={120}
+            height={120}
+            className="w-16 h-12 sm:w-24 sm:h-16 md:w-28 md:h-16 lg:w-32 lg:h-20 object-cover"
+          />
         </Link>
 
-        <div className="flex  gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 flex-1 max-w-2xl">
           {/* Deliver to location */}
-<div className="flex items-center gap-1 ml-6 text-sm text-dark-brown cursor-pointer">
-  <img src="/Egy.webp" alt="Egypt Flag" className="w-6 h-4" />
-  <span className="text-xs">Deliver to</span>
-</div>
+          <div className=" md:flex items-center gap-1 ml-2 sm:ml-6 text-sm text-dark-brown cursor-pointer flex-shrink-0">
+            <img src="/Egy.webp" alt="Egypt Flag" className="w-6 h-4" />
+            <span className="text-xs">Deliver to</span>
+          </div>
 
           {/* Search Bar */}
-          <div className="mx-6">
+          <div className="flex-1 min-w-0 mx-2 sm:mx-6">
             <div className="relative">
               <input
                 type="search"
                 placeholder="Search products..."
-                className="w-220 pl-10 pr-4 py-2 rounded-full outline-0 
-               focus:border-brown focus:border-1 text-sm bg-white transition duration-300 shadow-md"
+                className="w-full max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl pl-8 sm:pl-10 pr-3 sm:pr-4 py-1.5 sm:py-2 rounded-full outline-0 
+               focus:border-brown focus:border-1 text-xs sm:text-sm bg-white transition duration-300 shadow-md"
               />
               <svg
-                className="absolute left-3 top-2.5 w-4 h-4 text-gray-500"
+                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 text-gray-500"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -48,29 +54,27 @@ export default function Navbar() {
         </div>
 
         {/* Right side icons */}
-        <div className="flex items-center space-x-6 ">
+        <div className="flex items-center space-x-3 sm:space-x-6 flex-shrink-0">
           {/* Favorites */}
           <Link
             href="/favourites"
-            className={`text-xl transition-transform duration-200 hover:scale-110 ${
-              pathname === "/favourites"
-                ? "text-brown"
-                : "text-brown hover:text-dark-brown"
-            }`}
+            className={`text-lg sm:text-xl transition-transform duration-200 hover:scale-110 ${pathname === "/favourites"
+              ? "text-brown"
+              : "text-brown hover:text-dark-brown"
+              }`}
           >
-            <MdOutlineFavorite className="text-xl text-brown hover:text-dark-brown transition-colors duration-300" />
+            <MdOutlineFavorite className="text-lg sm:text-xl text-brown hover:text-dark-brown transition-colors duration-300" />
           </Link>
 
           {/* Cart */}
           <Link
             href="/Cart"
-            className={`text-xl transition-transform duration-200 hover:scale-110 ${
-              pathname === "/cart"
-                ? "text-brown"
-                : "text-brown hover:text-dark-brown"
-            }`}
+            className={`text-lg sm:text-xl transition-transform duration-200 hover:scale-110 ${pathname === "/cart"
+              ? "text-brown"
+              : "text-brown hover:text-dark-brown"
+              }`}
           >
-            <FaShoppingCart className="text-xl text-brown hover:text-dark-brown transition-colors duration-300" />
+            <FaShoppingCart className="text-lg sm:text-xl text-brown hover:text-dark-brown transition-colors duration-300" />
           </Link>
 
           {/* Profile dropdown */}
@@ -83,7 +87,7 @@ export default function Navbar() {
                 src="/MohabUpdated.jpg"
                 width={40}
                 height={40}
-                className="rounded-full border-2 border-[#dcd5b9] hover:border- mr-4 transition-all cursor-pointer"
+                className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full border-2 border-[#dcd5b9] hover:border- mr-1 sm:mr-4 transition-all cursor-pointer"
                 alt="Profile"
               />
             </button>
@@ -103,7 +107,7 @@ export default function Navbar() {
                 >
                   My Orders
                 </Link>
-                   <Link
+                <Link
                   href="/dashboard"
                   className="block px-4 py-2 text-[#0B0B0B] hover:bg-beige transition"
                 >
