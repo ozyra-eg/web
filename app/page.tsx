@@ -1,44 +1,20 @@
 "use client";
 import DomeGallery from "./Hero-DomeGallery/DomeGallery";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarCollapse,
-  NavbarToggle,
-  Dropdown,
-  DropdownItem,
-  TextInput,
-  Button,
-} from "flowbite-react";
-import { HiSearch, HiShoppingCart, HiUser } from "react-icons/hi";
 import Link from "next/link";
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import {
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
-  FaWhatsapp,
-  FaTiktok,
-} from "react-icons/fa";
-import { Span } from "next/dist/trace";
+import { Autoplay } from "swiper/modules";
 import Footer from "./components/Footer.js";
 import DealsBanner from "./components/DealsBanner.js";
 import Categories from "./components/Categories.js";
 import RecentlyViewed from "./components/RecentlyViewed.js";
 import NavBar from "./components/NavBar.js";
-import ScrollFloat from "./components/ScrollFloat"; // make sure this is your ScrollFloat path
 import { motion } from "framer-motion";
 import RotatingText from "./components/RotatingText";
 import TiltedCard from "./components/TiltedCard";
 import HomeProductCard from "./components/HomeProductCard";
 import TiltedWrapper from "./components/TiltedWrapper.js";
 import { useFetch } from "./hooks/useFetch";
-import { Brand, Category, Discount, HomePageDiscount, Product } from "./types";
+import { Brand, Category, HomePageDiscount, Product } from "./types";
 
 export default function NoonNavbar() {
   const { data: categoriesData, loading: loadingCategories, error: categoriesError } = useFetch<Category>('/api/home/categories?images&names=shorts,shoes,t-shirts,shirts,pants,hoodies');
@@ -85,7 +61,7 @@ export default function NoonNavbar() {
         </Link>
       </div> */}
       
- <div className="relative w-full h-[90vh] overflow-hidden">
+  <div className="relative w-full h-[90vh] overflow-hidden">
   {/* 🌐 Sphere as Background */}
   <div className="absolute inset-0 z-0">
     <DomeGallery />
@@ -257,6 +233,7 @@ export default function NoonNavbar() {
                     badge={deal.badge || "Best Seller"}
                     onAddToCart={() => console.log(`Add to cart: ${deal.name}`)}
                     onBuyNow={() => console.log(`Buy now: ${deal.name}`)}
+                    onAddToFavorites={() => console.log(`Add ${deal.name} to favorites`)}
                   />
                 </Link>
                 </TiltedWrapper>
@@ -267,7 +244,7 @@ export default function NoonNavbar() {
 
         {/* More products from kaza */}
         <div className="bg-dark-brown p-4 rounded-2xl shadow mt-20">
-         <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-[#FFFCF2]">
+          <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-white">
                 Recommended for You
                 
               </h2>

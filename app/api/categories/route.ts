@@ -1,5 +1,6 @@
 import { NextRequest as Request } from "next/server";
 import { fetchApiWithFallback } from "../api.controller";
+import { config } from "@/config";
 
 const categoriesData = [
     {
@@ -50,7 +51,8 @@ export async function GET(req: Request) {
     console.log("Query Parameters:", Array.from(searchParams.entries()));
 
     // define what API url you want to call
-    const apiUrl = "http://localhost:8888/api/v1/categories";
+    console.log("API URL:", config.apiUrl);
+    const apiUrl = `${config.apiUrl}/api/v1/categories`;
 
     return fetchApiWithFallback(apiUrl, searchParams, { result: categoriesData });
 }

@@ -20,7 +20,7 @@ export default function TiltedCard({
   rotateAmplitude = 30,
   showMobileWarning = true,
   showTooltip = true,
-  link = null, // <-- add link here
+  link = "", // <-- add link here
 }) {
   const ref = useRef(null);
   const x = useMotionValue(0);

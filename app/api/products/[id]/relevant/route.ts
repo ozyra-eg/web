@@ -1,4 +1,5 @@
 import { fetchApiWithFallback } from "@/app/api/api.controller";
+import { config } from "@/config";
 
 const relevantProductsData = [
         {
@@ -70,7 +71,7 @@ export async function GET(
     console.log("Query Parameters:", Array.from(searchParams.entries()));
 
     // define what API url you want to call
-    const apiUrl = `http://localhost:8888/api/v1/products/${productId}/relevant`;
+    const apiUrl = `${config.apiUrl}/api/v1/products/${productId}/relevant`;
 
     return fetchApiWithFallback(apiUrl, searchParams, { result: relevantProductsData });
 }

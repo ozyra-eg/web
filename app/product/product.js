@@ -1,18 +1,19 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { Rating, RatingStar, Button, Badge } from "flowbite-react";
 import ReviewCard from "../components/ReviewCard";
 import AttributeSection from "../components/AttributeSection";
 import ProductPrice from "../components/ProductPrice";
 import { getBestDiscountAmount } from "./utils";
-import { useFetch } from "../hooks/useFetch";
 
 export default function BambiBabyTeeProductPage() {
   // defaults while loading
   const [images, setImages] = useState(["https://prd.place/400?id=5&p=40", "https://prd.place/400?id=6&p=40", "https://prd.place/400?id=7&p=40"]);
 
   // TODO: set productId from props or route in future; default to 30 for now
-  const [productId, setProductId] = useState(12);
+  // TODO: handle product not found (404) case
+  const [productId, setProductId] = useState(2);
   const [currentProduct, setCurrentProduct] = useState({});
   const [currentVersion, setCurrentVersion] = useState(null);
   const [skuCode, setSkuCode] = useState("");
@@ -144,7 +145,7 @@ export default function BambiBabyTeeProductPage() {
         {/* Breadcrumbs */}
         <nav className="text-sm text-gray-600 mb-4" aria-label="Breadcrumb">
           <ol className="flex gap-2 items-center">
-            <li><a href="/" className="hover:underline">Home</a></li>
+            <li><Link href="/" className="hover:underline">Home</Link></li>
             <li>/</li>
             <li><a href="/products" className="hover:underline">Products</a></li>
             <li>/</li>

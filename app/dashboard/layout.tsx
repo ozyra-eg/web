@@ -15,7 +15,7 @@ export default function DashboardLayout({
   return (
     <>
       {/* Navbar */}
-      <Navbar className="sticky top-0 z-50 h-20" />
+      <Navbar />
 
       {/* Mobile sidebar backdrop */}
       {sidebarOpen && (

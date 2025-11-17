@@ -5,6 +5,7 @@ import Navbar from "../components/NavBar";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import { Address } from "../types";
 
 const containerStyle = {
   width: "100%",
@@ -13,6 +14,7 @@ const containerStyle = {
   marginTop: "10px",
 };
 
+// Use plain Lat/Lng literal at module scope to avoid referencing `google` during server build
 const defaultCenter = { lat: 30.0444, lng: 31.2357 }; // Cairo default center
 
 const AddressesPage = () => {
@@ -34,8 +36,10 @@ const AddressesPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [currentId, setCurrentId] = useState<number | null>(null);
-  const [formData, setFormData] = useState({ name: "", details: "", phone: "" });
-  const [marker, setMarker] = useState<any>(null);
+  const [formData, setFormData] = useState<Address>({ id: 0, name: "", details: "", phone: "" });
+  // Use a simple LatLng literal instead of google.maps.LatLng so this file can be
+  // imported on the server without referencing browser globals.
+  const [marker, setMarker] = useState<{ lat: number; lng: number } | null>(null);
 
   // Load Google Maps API once
   const { isLoaded } = useJsApiLoader({
@@ -50,14 +54,14 @@ const AddressesPage = () => {
 
   // Open Add modal
   const openAddModal = () => {
-    setFormData({ name: "", details: "", phone: "" });
+    setFormData({ id: 0, name: "", details: "", phone: "" });
     setMarker(null);
     setIsEditing(false);
     setShowModal(true);
   };
 
   // Open Edit modal
-  const openEditModal = (addr: any) => {
+  const openEditModal = (addr: Address) => {
     setFormData(addr);
     setCurrentId(addr.id);
 
@@ -91,8 +95,8 @@ const AddressesPage = () => {
       );
     } else {
       const newEntry = {
-        id: addresses.length + 1,
         ...formData,
+        id: addresses.length + 1,
       };
       setAddresses([...addresses, newEntry]);
     }
@@ -215,7 +219,8 @@ const AddressesPage = () => {
                           lat: e.latLng?.lat() ?? 0,
                           lng: e.latLng?.lng() ?? 0,
                         };
-                        setMarker(coords);
+                        // store marker as plain LatLng literal
+                        setMarker({ lat: coords.lat, lng: coords.lng });
                         setFormData({
                           ...formData,
                           details: `${coords.lat.toFixed(5)}, ${coords.lng.toFixed(5)}`,
