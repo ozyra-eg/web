@@ -265,7 +265,7 @@ export default function NoonNavbar() {
           </Swiper>
         </div>
 
-        {/* Recommended for You */}
+        {/* More products from kaza */}
         <div className="bg-dark-brown p-4 rounded-2xl shadow mt-20">
          <h2 className="hidden sm:block text-4xl font-extrabold text-center w-fit mx-auto relative text-[#FFFCF2]">
                 Recommended for You
@@ -313,6 +313,48 @@ export default function NoonNavbar() {
       {/* categories */}
 
       <Categories data={(categoriesData && !categoriesError)? categoriesData.result : []} />
+
+           <div className="bg-dark-brown p-4 rounded-2xl shadow mt-20">
+<h2 className="font-playwrite hidden sm:block text-4xl text-left px-4 pl-6 py-2 text-[#FFFCF2]">
+  More from Ghalia
+</h2>
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={20}
+            slidesPerView={2}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+              1280: { slidesPerView: 4 },
+            }}
+            autoplay={{
+              delay: 2000, // time between slides in ms
+              disableOnInteraction: false, // continue autoplay after interaction
+            }}
+          >
+            {recommendedProductsData && recommendedProductsData.result.map((item, index) => (
+              <SwiperSlide className="py-5 px-4" key={index}>
+                <TiltedWrapper scaleOnHover={1.05}>
+                  <Link href="/product" className="link">
+                  <HomeProductCard
+                  imageSrc={item.imageUrl ?? "/beige logo.png"}
+                  brand={(item.brand)? item.brand.name : "Brand Name"} // fallback if no brand
+                  title={item.name}
+                  price={`${(item.priceCent / 100)} EGP`}
+                  badge={item.badge || null} // optional badge
+                  onAddToCart={() => console.log(`Add to cart: ${item.name}`)}
+                  onBuyNow={() => console.log(`Buy now: ${item.name}`)}
+                  onAddToFavorites={() =>
+                    console.log(`Add to favorites: ${item.name}`)
+                  }
+                />
+                </Link>
+                  
+                </TiltedWrapper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
 
       <RecentlyViewed />
 
