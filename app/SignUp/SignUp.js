@@ -2,13 +2,15 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import "./SignUp.css"; 
+import "./SignUp.css";
 import signUpandInImage from "../../public/OBJECTS[1].png";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { authClient } from "@/lib/auth-client";
+import { permanentRedirect } from "next/navigation";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [gender, setGender] = useState("");
   const [dob, setDob] = useState("");
@@ -18,10 +20,22 @@ export default function SignUp() {
     console.log("Email:", email);
     console.log("Password:", password);
     console.log("Gender:", gender);
-    console.log("Number:", number);
-    console.log("Address:", address);
-    console.log("Governorate:", governorate);
-    console.log("Date of Birth:", dob);
+    // console.log("Number:", number);
+    // console.log("Address:", address);
+    // console.log("Governorate:", governorate);
+    // console.log("Date of Birth:", dob);
+    //
+    setName("test")
+    authClient.signUp.email({
+      email: email,
+      name: name,
+      password: password,
+      callbackURL: "http://localhost:3000/",//process.env.HOME_URL,
+      fetchOptions: {
+
+        onSuccess: () => permanentRedirect("http://localhost:3000/"),
+      }
+    })
   };
 
   return (
@@ -37,7 +51,7 @@ export default function SignUp() {
             <div className="input-group">
               <label htmlFor="email" >Email</label>
               <input
-                
+
                 type="email"
                 id="email"
                 placeholder="Enter your email"
@@ -51,7 +65,7 @@ export default function SignUp() {
             <div className="input-group">
               <label htmlFor="password" >Password</label>
               <input
-                
+
                 type="password"
                 id="password"
                 placeholder="Create a password"
@@ -66,7 +80,7 @@ export default function SignUp() {
             <div className="input-group">
               <label htmlFor="gender" >Gender</label>
               <select
-                
+
                 id="gender"
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
@@ -78,7 +92,7 @@ export default function SignUp() {
               </select>
             </div>
 
-        
+
           </div>
 
           <button type="submit">Create account</button>
@@ -86,22 +100,30 @@ export default function SignUp() {
 
         <p className="text-with-lines">OR</p>
 
-   <div className="social-buttons">
-  <button 
-    className="google-btn" 
-    onClick={() => signIn("google", { callbackUrl: "/" })}
-  >
-    Google
-  </button>
+        <div className="social-buttons">
+          <button
+            className="google-btn"
+            onClick={() => {
+              console.log("hello")
+              authClient.signIn.social({
+                provider: "google",
+                callbackURL: "http://localhost:3000/",//process.env.HOME_URL,
+                // errorCallbackURL: //process.env.HOME_URL
+              })
+            }
+            }
+          >
+            Google
+          </button>
 
-  <button className="facebook-btn">Facebook</button>
+          <button className="facebook-btn">Facebook</button>
 
-</div>
+        </div>
 
         <div className="alternate-login ">
-            <p className="mx-5">
-              Already have an account ? <Link href="/SignIn" className="link"> Log in</Link>
-            </p>
+          <p className="mx-5">
+            Already have an account ? <Link href="/SignIn" className="link"> Log in</Link>
+          </p>
         </div>
       </div>
 

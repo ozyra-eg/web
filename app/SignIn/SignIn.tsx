@@ -5,7 +5,8 @@ import Image from "next/image";
 import "./SignIn.css";
 import signUpandInImage from "../../public/OBJECTS[1].png";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { authClient } from "@/lib/auth-client";
+import { redirect } from "next/navigation";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
@@ -16,6 +17,14 @@ export default function SignIn() {
     e.preventDefault();
     console.log("Email:", email);
     console.log("Password:", password);
+
+    authClient.signIn.email({
+      email: email,
+      password: password,
+      fetchOptions: {
+        onSuccess: () => redirect("http://localhost:3000/"),
+      },
+    })
   };
 
   return (
@@ -33,7 +42,7 @@ export default function SignIn() {
               Email
             </label>
             <input
-              
+
               type="email"
               id="email"
               placeholder="Enter your email"
@@ -48,7 +57,7 @@ export default function SignIn() {
               Password
             </label>
             <input
-              
+
               type="password"
               id="password"
               placeholder="Create a password"
@@ -64,22 +73,25 @@ export default function SignIn() {
 
         <p className="text-with-lines">OR</p>
 
-    <div className="social-buttons">
-  {/* ✅ Google Login */}
-  <button 
-    className="google-btn" 
-    onClick={() => signIn("google", { callbackUrl: "/" })}
-  >
-    Google
-  </button>
+        <div className="social-buttons">
+          {/* ✅ Google Login */}
+          <button
+            className="google-btn"
+            onClick={() => authClient.signIn.social({
+              provider: "google",
+              callbackURL: "http://localhost:3000/",
+            })}
+          >
+            Google
+          </button>
 
-  {/* Facebook (disabled for now) */}
-  <button className="facebook-btn" >
-    Facebook
-  </button>
+          {/* Facebook (disabled for now) */}
+          <button className="facebook-btn" >
+            Facebook
+          </button>
 
 
-</div>
+        </div>
 
 
         <div className="alternate-login">

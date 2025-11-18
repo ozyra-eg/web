@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Providers } from "./providers"; // 👈 import the client wrapper
 import "flowbite";
 import "./globals.css";
 
@@ -17,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ozyra - Shop Local Brands",
   description: "Discover, compare, and shop from local Egyptian brands.",
-  
+
 };
 
 import { Quicksand } from "next/font/google";
@@ -38,7 +37,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${quicksand.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        {children}
       </body>
     </html>
   );
